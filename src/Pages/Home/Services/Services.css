@@ -1,0 +1,9 @@
+.services{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card-img{
+    height: 250px;
+}
