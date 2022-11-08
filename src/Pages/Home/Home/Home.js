@@ -1,4 +1,5 @@
 import React from 'react';
+import OurStory from '../OurStory/OurStory';
 import Services from '../Services/Services';
 import './Home.css'
 
@@ -14,6 +15,9 @@ const Home = () => {
             </div>
             <div>
                 <Services></Services>
+            </div>
+            <div className='mt-5 mb-5'>
+                <OurStory></OurStory>
             </div>
         </div>
     );
