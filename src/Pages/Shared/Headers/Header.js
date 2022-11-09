@@ -18,6 +18,7 @@ const Header = () => {
 
           </Nav>
           <Nav>
+            <Link to='/blog' className='fs-5 me-4 link-btn text-dark'>Blog</Link>
             {
               user?.email ?
                 <>
