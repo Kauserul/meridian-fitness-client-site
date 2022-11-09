@@ -1,4 +1,10 @@
 .footer{
-    background-color: lightgreen;
-    padding: 150px 10px;
+    /* background-color: lightgreen; */
+    padding: 100px 10px;
+}
+
+.footer ul > li{
+    list-style: none;
+    font-size: 22px;
+    margin: 10px;
 }
