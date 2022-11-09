@@ -9,14 +9,14 @@ import PreviousReview from '../Review/PreviousReview';
 const ServiceDetails = () => {
 
     const service = useLoaderData();
-
+    // console.log(service)
     const { img, _id, name, des, price, rating } = service
     return (
         <div className='container'>
             <Container className='mt-5 mb-5'>
                 <Row>
                     <Col lg='6'>
-                        <img style={{ height: '500px', width: '32rem' }} src={img} alt=""/>
+                        <img style={{ height: '500px', width: '32rem' }} src={img} alt="" />
                     </Col>
                     <Col lg='6'>
                         <h2>{name}</h2>
@@ -28,11 +28,9 @@ const ServiceDetails = () => {
                     </Col>
                 </Row>
             </Container>
-
             <div>
-
+                <PreviousReview key={_id}></PreviousReview>
             </div>
-                <PreviousReview></PreviousReview>
             <div>
                 <ReviewAdded key={_id} service={service}></ReviewAdded>
             </div>

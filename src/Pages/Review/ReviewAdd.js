@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const ReviewAdded = ({service}) => {
+    const {name, img, price} = service
+    const {user} = useContext(AuthContext)
     const handleReview = e =>{
         e.preventDefault()
 
         const form = e.target;
-        const name = form.name.value;
+        const userName = form.name.value;
         const img_url = form.image.value;
         const message = form.message.value;
-        
+        console.log(userName, img_url, message)
         const review = {
             serviceId : service._id,
             name,
+            img,
+            price,
+            userName,
             img_url,
             message,
-           
+           email : user?.email
         }
 
         fetch('http://localhost:5000/review', {

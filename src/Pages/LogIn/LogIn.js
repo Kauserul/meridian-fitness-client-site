@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const LogIn = () => {
-    const {userLogIn} = useContext(AuthContext)
+    const {userLogIn, googleLogIn} = useContext(AuthContext)
 
     const handleLogIn = e =>{
         e.preventDefault()
@@ -40,6 +40,11 @@ const LogIn = () => {
                 <Button variant="primary" type="submit">
                     LogIn
                 </Button>
+
+                <div className='text-center mt-4 mb-5'>
+                    <h6>Or other log In </h6>
+                    <button onClick={googleLogIn} className='btn btn-primary'>Google</button>
+                </div>
 
                 <p className='mt-2'>Don't have any account? Please <Link to='/register'>Register</Link> </p>
             </Form>

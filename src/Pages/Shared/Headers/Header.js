@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Header = () => {
-  const { user,userLogOut } = useContext(AuthContext)
+  const { user, userLogOut } = useContext(AuthContext)
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -15,24 +15,16 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+
           </Nav>
           <Nav>
             {
               user?.email ?
-                <Link><button onClick={userLogOut} className='btn btn-outline-success'>Log Out</button></Link>
+                <>
+                  <Link to='/myReview' className='me-4 text-dark fs-5'>My reviews</Link>
+                  <Link to='/addService' className='me-3 text-dark fs-5'> Add service</Link>
+                  <Link><button onClick={userLogOut} className='btn btn-outline-success'>Log Out</button></Link>
+                </>
                 :
                 <Link to='/login'><button className='btn btn-outline-success'>Log In</button></Link>
             }
