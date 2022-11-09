@@ -6,7 +6,7 @@ const MyReviewDetails = ({review, handleDelete}) => {
 
     
     return (
-        <div className='d-flex mb-4 align-items-center container'>
+        <div className='d-flex mb-4 align-items-center container bg-info p-4 rounded'>
             <div className='me-3'>
                 <button onClick={() => handleDelete(_id)} className='btn btn-danger'>X</button>
             </div>
@@ -15,11 +15,10 @@ const MyReviewDetails = ({review, handleDelete}) => {
                 <div>
                     <h5>{name}</h5>
                     <p><small>{message}</small></p>
+                    <button className='btn btn-outline-primary'>Update</button>
                 </div>
             </div>
-            <div className='ms-5'>
-                <button className='btn'>Update</button>
-            </div>
+            
         </div>
     );
 };

@@ -30,7 +30,7 @@ const MyReview = () => {
     }
 
     return (
-        <div>
+        <div className='container mb-4'>
             <h2>Total Review : {myReview.length}</h2>
             {
                 myReview.map(review => <MyReviewDetails
