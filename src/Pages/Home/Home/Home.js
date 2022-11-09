@@ -5,7 +5,7 @@ import './Home.css'
 
 const Home = () => {
     return (
-        <div>
+        <div className='container'>
             <div className='home-banner'>
                 <div className='w-25 text-white ms-5'>
                     <h2 className='fs-2 banner-title'>Home Made Food

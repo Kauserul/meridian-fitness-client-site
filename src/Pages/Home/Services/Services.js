@@ -15,7 +15,7 @@ const Services = () => {
             })
     }, [])
     return (
-        <div className='mt-5 mb-5'>
+        <div className='mt-5 mb-5 container'>
             <div className='text-center mb-5'>
                 <h2>Ready to Orders</h2>
                 <p>Try some of our best foods</p>
