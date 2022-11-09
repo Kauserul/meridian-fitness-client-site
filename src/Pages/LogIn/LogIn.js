@@ -1,0 +1,50 @@
+import React, { useContext, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+
+const LogIn = () => {
+    const {userLogIn} = useContext(AuthContext)
+
+    const handleLogIn = e =>{
+        e.preventDefault()
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(email, password)
+        userLogIn(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+            form.reset()
+        })
+        .catch(err => console.error(err))
+    }
+    return (
+        <div className='w-25 m-auto mt-5 mb-5 border p-5 rounded'>
+            <Form onSubmit={handleLogIn}>
+                <h3 className='text-center'>Log In</h3>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control name='email' type="email" placeholder="Enter email" />
+                    
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control name='password' type="password" placeholder="Password" />
+                </Form.Group>
+                
+                <Button variant="primary" type="submit">
+                    LogIn
+                </Button>
+
+                <p className='mt-2'>Don't have any account? Please <Link to='/register'>Register</Link> </p>
+            </Form>
+        </div>
+    );
+};
+
+export default LogIn;
