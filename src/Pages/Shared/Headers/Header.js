@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand><Link to='/'>Cookups</Link> </Navbar.Brand>
+        <Navbar.Brand><Link to='/' className='link-btn'>Cookups</Link> </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -21,8 +21,8 @@ const Header = () => {
             {
               user?.email ?
                 <>
-                  <Link to='/myReview' className='me-4 text-dark fs-5'>My reviews</Link>
-                  <Link to='/addService' className='me-3 text-dark fs-5'> Add service</Link>
+                  <Link to='/myReview' className='me-4 text-dark fs-5 link-btn'>My reviews</Link>
+                  <Link to='/addService' className='me-3 text-dark fs-5 link-btn'> Add service</Link>
                   <Link><button onClick={userLogOut} className='btn btn-outline-success'>Log Out</button></Link>
                 </>
                 :

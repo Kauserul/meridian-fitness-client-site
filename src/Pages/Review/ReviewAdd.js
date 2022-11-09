@@ -42,12 +42,12 @@ const ReviewAdded = ({service}) => {
         <div className='mb-5'>
             <h4>Add Review</h4>
             <form onSubmit={handleReview}>
-                <input className='me-3 mb-3' type="text" name='name' placeholder='name' />
+                <input className='me-3 mb-3' type="text" name='name' placeholder='name' required/>
                 <input type="text" name='image' placeholder='image_URL' />
                 <br />
                 <textarea name="message" id="" cols="50" rows="3" placeholder='Your comment'></textarea>
                 <br />
-                <button type="submit">Add Review</button>
+                <button className='btn btn-success' type="submit">Add Review</button>
             </form>
         </div>
     );
