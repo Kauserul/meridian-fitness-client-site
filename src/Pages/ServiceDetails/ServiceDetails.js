@@ -3,7 +3,8 @@ import { useLoaderData } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Review from '../Review/Review';
+import ReviewAdded from '../Review/ReviewAdd';
+import PreviousReview from '../Review/PreviousReview';
 
 const ServiceDetails = () => {
 
@@ -29,7 +30,11 @@ const ServiceDetails = () => {
             </Container>
 
             <div>
-                <Review></Review>
+
+            </div>
+                <PreviousReview></PreviousReview>
+            <div>
+                <ReviewAdded key={_id} service={service}></ReviewAdded>
             </div>
         </div>
     );
