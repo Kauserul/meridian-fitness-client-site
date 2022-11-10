@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import Spinner from 'react-bootstrap/Spinner';
+import { ToastContainer, toast } from 'react-toastify';
 
 const LogIn = () => {
     useTitle("Login")
@@ -19,12 +20,13 @@ const LogIn = () => {
         // console.log(email, password)
         userLogIn(email, password)
             .then(result => {
+                toast.success('Log in success')
                 const user = result.user;
                 const currentUser = {
                     email: user.email
                 }
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://meridian-fitness-server.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': "application/json"
@@ -52,7 +54,7 @@ const LogIn = () => {
                     email: user.email
                 }
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://meridian-fitness-server.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': "application/json"

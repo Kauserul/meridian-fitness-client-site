@@ -10,7 +10,7 @@ const AllFood = () => {
     const [allServices, setAllServices] = useState([])
 
     useEffect( () =>{
-        fetch('http://localhost:5000/servicesAll')
+        fetch('https://meridian-fitness-server.vercel.app/servicesAll')
         .then(res => res.json())
         .then(data => setAllServices(data))
     }, [])

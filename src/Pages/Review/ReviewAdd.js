@@ -28,7 +28,7 @@ const ReviewAdded = ({ service }) => {
             email: user?.email
         }
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://meridian-fitness-server.vercel.app/review', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +40,7 @@ const ReviewAdded = ({ service }) => {
                 console.log(data)
                 if (data.acknowledged) {
                     // toast.error('Review added')
-                    alert('Review added')
+                    toast.success('Review added')
                 }
             })
     }

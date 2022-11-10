@@ -7,7 +7,7 @@ const PreviousReview = ({service}) => {
     const [reviews, setReviews] = useState([])
 
     useEffect( () =>{
-        fetch(`http://localhost:5000/review/${_id}`)
+        fetch(`https://meridian-fitness-server.vercel.app/review/${_id}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)

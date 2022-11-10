@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import useTitle from '../../Hooks/useTitle';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddService = () => {
     useTitle("Add Service")
@@ -26,7 +26,7 @@ const AddService = () => {
             price
         }
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://meridian-fitness-server.vercel.app/services', {
             method : "POST",
             headers : {
                 'content-type' : 'application/json'
@@ -37,7 +37,7 @@ const AddService = () => {
         .then(data =>{
             console.log(data)
             if(data.acknowledged){
-                alert('food added')
+                toast.success('Service added')
             }
         })
         
