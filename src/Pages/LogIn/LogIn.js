@@ -3,8 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const LogIn = () => {
+    useTitle("Login")
     const {userLogIn, googleLogIn} = useContext(AuthContext)
 
     const handleLogIn = e =>{

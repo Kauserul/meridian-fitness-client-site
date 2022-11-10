@@ -5,8 +5,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReviewAdded from '../Review/ReviewAdd';
 import PreviousReview from '../Review/PreviousReview';
+import useTitle from '../../Hooks/useTitle';
 
 const ServiceDetails = () => {
+    useTitle("Service Details")
 
     const service = useLoaderData();
     console.log(service)

@@ -1,10 +1,12 @@
 import React from 'react';
+import useTitle from '../../../Hooks/useTitle';
 import OurStory from '../OurStory/OurStory';
 import Services from '../Services/Services';
 import WhatIsCookups from '../WhatIsCookups/WhatIsCookups';
 import './Home.css'
 
 const Home = () => {
+    useTitle("Home")
     return (
         <div className='container mt-3'>
             <div className='home-banner rounded mb-5'>

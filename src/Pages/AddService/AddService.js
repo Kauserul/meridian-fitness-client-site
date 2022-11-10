@@ -3,9 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import useTitle from '../../Hooks/useTitle';
 
 
 const AddService = () => {
+    useTitle("Add Service")
     const handleAddFood = e =>{
         e.preventDefault()
 

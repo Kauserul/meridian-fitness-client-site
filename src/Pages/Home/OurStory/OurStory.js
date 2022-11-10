@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import myStory from '../../../img/MyStory.jpg'
 
 const OurStory = () => {
+    
     return (
         <Container>
             <Row>

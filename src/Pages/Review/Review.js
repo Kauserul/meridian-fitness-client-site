@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Review = ({review}) => {
+    
     const {img_url, userName, message} = review
     return (
         <div className='d-flex align-items-center mb-3 w-50'>

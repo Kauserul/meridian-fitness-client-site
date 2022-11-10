@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+
+
 
 const ReviewAdded = ({ service }) => {
     const { name, img, price } = service
@@ -35,7 +38,7 @@ const ReviewAdded = ({ service }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert("Review added")
+                    toast('Review added')
                 }
             })
     }
@@ -57,6 +60,7 @@ const ReviewAdded = ({ service }) => {
                     :
                     <Link to='/login' className='fs-3'>Please login to add a review</Link>
             }
+            
         </div>
     );
 };
