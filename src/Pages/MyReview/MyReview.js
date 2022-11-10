@@ -31,7 +31,7 @@ const MyReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    toast.success('Deleted')
+                    alert('Deleted')
                 }
                 const remaining = myReview.filter(review => review._id !== id)
                 setReview(remaining)

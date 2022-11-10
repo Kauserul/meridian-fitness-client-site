@@ -43,7 +43,7 @@ const AddService = () => {
         
     }
     return (
-        <Form onSubmit={handleAddFood} className='container mt-5 w-50 border p-4 rounded'>
+        <Form onSubmit={handleAddFood} className='container mt-5 mb-5 w-50 border p-4 rounded'>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Name</Form.Label>

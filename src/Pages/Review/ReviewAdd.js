@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 
@@ -38,6 +39,7 @@ const ReviewAdded = ({ service }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
+                    // toast.error('Review added')
                     alert('Review added')
                 }
             })
