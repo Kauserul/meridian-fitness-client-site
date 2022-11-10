@@ -7,14 +7,13 @@ const PreviousReview = ({service}) => {
     const [reviews, setReviews] = useState([])
 
     useEffect( () =>{
-        fetch('http://localhost:5000/review')
+        fetch(`http://localhost:5000/review/${_id}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            const remaining = reviews.filter(rew => rew.serviceId === _id)
-            setReviews(remaining)
+            setReviews(data)
         })
-    }, [])
+    }, [_id])
     return (
         <div>
             <h2>Total Review ({reviews.length})</h2>

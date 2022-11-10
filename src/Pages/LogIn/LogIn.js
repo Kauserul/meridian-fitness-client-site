@@ -4,12 +4,13 @@ import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
+import Spinner from 'react-bootstrap/Spinner';
 
 const LogIn = () => {
     useTitle("Login")
-    const {userLogIn, googleLogIn} = useContext(AuthContext)
+    const { userLogIn, googleLogIn , loading} = useContext(AuthContext)
 
-    const handleLogIn = e =>{
+    const handleLogIn = e => {
         e.preventDefault()
 
         const form = e.target;
@@ -17,12 +18,58 @@ const LogIn = () => {
         const password = form.password.value;
         // console.log(email, password)
         userLogIn(email, password)
-        .then(result =>{
-            const user = result.user;
-            console.log(user)
-            form.reset()
-        })
-        .catch(err => console.error(err))
+            .then(result => {
+                const user = result.user;
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': "application/json"
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('Token', data.token)
+                    })
+
+                form.reset()
+            })
+            .catch(err => console.error(err))
+
+
+    }
+    const handleGoogleLogIn = () => {
+        googleLogIn()
+            .then(result => {
+                const user = result.user;
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': "application/json"
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('Token', data.token)
+                    })
+            })
+            .catch(err => console.err(err))
+    }
+
+    if(loading){
+        return <Spinner className='spinner' animation="grow" />;
     }
     return (
         <div className='w-25 m-auto mt-5 mb-5 border p-5 rounded'>
@@ -31,21 +78,21 @@ const LogIn = () => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control name='email' type="email" placeholder="Enter email" />
-                    
+
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control name='password' type="password" placeholder="Password" />
                 </Form.Group>
-                
+
                 <Button variant="primary" type="submit">
                     LogIn
                 </Button>
 
                 <div className='text-center mt-4 mb-5'>
                     <h6>Or other log In </h6>
-                    <button onClick={googleLogIn} className='btn btn-primary'>Google</button>
+                    <button onClick={handleGoogleLogIn} className='btn btn-primary'>Google</button>
                 </div>
 
                 <p className='mt-2'>Don't have any account? Please <Link to='/register'>Register</Link> </p>

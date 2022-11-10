@@ -4,10 +4,11 @@ import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Register = () => {
     useTitle("Register")
-    const {userRegister} = useContext(AuthContext)
+    const {userRegister, loading} = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault()
@@ -20,10 +21,30 @@ const Register = () => {
         userRegister(email, password)
         .then(result => {
             const user = result.user
-            console.log(user)
+
+            const currentUser = {
+                email : user.email
+            }
+            fetch('http://localhost:5000/jwt', {
+                method : "POST",
+                headers : {
+                    'content-type' : "application/json"
+                },
+                body : JSON.stringify(currentUser)
+            })
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data)
+                localStorage.setItem('Token', data.token)
+            })
+
             form.reset()
         })
         .catch(err => console.error(err))
+    }
+
+    if(loading){
+        return <Spinner className='spinner' animation="grow" />;
     }
     return (
         <div className='w-25 m-auto mt-5 mb-5 border p-5 rounded'>

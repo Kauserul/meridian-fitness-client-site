@@ -38,7 +38,7 @@ const ReviewAdded = ({ service }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    toast('Review added')
+                    alert('Review added')
                 }
             })
     }

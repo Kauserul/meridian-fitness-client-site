@@ -15,7 +15,7 @@ const MyReviewDetails = ({review, handleDelete}) => {
                 <div>
                     <h5>{name}</h5>
                     <p><small>{message}</small></p>
-                    <button className='btn btn-outline-primary'>Update</button>
+                    <button  className='btn btn-outline-primary'>Update</button>
                 </div>
             </div>
             
